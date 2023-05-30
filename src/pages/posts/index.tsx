@@ -8,9 +8,9 @@ interface PostListProps {
 
 const PostListPage: React.FC<PostListProps> = (props) => {
   return (
-    <>
+    <div className="mt-12">
       <PostList posts={props.posts} />
-    </>
+    </div>
   );
 };
 

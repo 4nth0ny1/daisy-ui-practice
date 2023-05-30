@@ -7,7 +7,7 @@ interface PostListProps {
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
-    <div>
+    <div className="flex flex-row flex-wrap justify-center">
       {posts.map((post) => {
         return <PostItem key={post.id} post={post} />;
       })}
