@@ -1,10 +1,13 @@
 import type { PostInterface } from "../types";
+import Link from "next/link";
 
 interface PostProps {
   post: PostInterface;
 }
 
 const PostItem: React.FC<PostProps> = ({ post }) => {
+  const { id, title, description } = post;
+  const linkPath = `/posts/${id}`;
   return (
     <div className="card m-4 w-80 bg-base-100 shadow-xl">
       <figure>
@@ -14,10 +17,12 @@ const PostItem: React.FC<PostProps> = ({ post }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{post.title}</h2>
-        <p>{post.description}</p>
+        <h2 className="card-title">{title}</h2>
+        <p>{description}</p>
         <div className="card-actions justify-end">
-          <button className="btn-primary btn">View</button>
+          <Link href={linkPath}>
+            <button className="btn-primary btn">View</button>
+          </Link>
         </div>
       </div>
     </div>
